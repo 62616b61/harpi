@@ -1,8 +1,8 @@
-const matrix = require('./Matrix');
+const Matrix = require('./Matrix');
 
 try {
-  const Raspi = require('raspi-io');
-  const five = require('johnny-five');
+  var Raspi = require('raspi-io');
+  var five = require('johnny-five');
 } catch (e) {
   console.log('Wup')
 }
