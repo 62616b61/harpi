@@ -1,6 +1,8 @@
-if (process.arch === 'arm') {
+try {
   const Raspi = require('raspi-io');
   const five = require('johnny-five');
+} catch (e) {
+  console.log('Wup')
 }
 
 function initRPiBoard(events) {
