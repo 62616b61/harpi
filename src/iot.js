@@ -9,7 +9,7 @@ const PROJECT_ID = 'rpi-ticker-tape';
 const REGISTRY_ID = 'raspberry-pies';
 const DEVICE_ID = 'raspberry-pi-zero';
 const CLOUD_REGION = 'europe-west1';
-const PRIVATE_KEY_FILE = './rsa_private.pem';
+const PRIVATE_KEY_FILE = '../keys/rsa_private.pem';
 
 function createJwt(projectId, privateKeyFile) {
   // Create a JWT to authenticate this device. The device will be disconnected
