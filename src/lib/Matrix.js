@@ -1,7 +1,7 @@
 const invert = bits => bits.map(bit => bit === 0 ? 1 : 0);
 
 module.exports = class Matrix {
-  constructor (events. register) {
+  constructor (events, register) {
     this.register = register;
     this.events = events;
 

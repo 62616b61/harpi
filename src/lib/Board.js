@@ -1,3 +1,5 @@
+const matrix = require('./Matrix');
+
 try {
   const Raspi = require('raspi-io');
   const five = require('johnny-five');
@@ -11,19 +13,19 @@ function initRPiBoard(events) {
     io: new Raspi(),
   });
 
-  const register = new five.ShiftRegister({
-    isAnode: true,
-    pins: {
-      data: 'P1-11',
-      clock: 'P1-15',
-      latch: 'P1-13',
-      reset: 'P1-7',
-    },
-  });
-  register.reset();
-  
   board.on('ready', () => {
     console.log('Board is ready')
+    const register = new five.ShiftRegister({
+      isAnode: true,
+      pins: {
+        data: 'P1-11',
+        clock: 'P1-15',
+        latch: 'P1-13',
+        reset: 'P1-7',
+      },
+    });
+    register.reset();
+
     const matrix = new Matrix(events, register);
   });
 }
