@@ -1,9 +1,9 @@
 const invert = bits => bits.map(bit => bit === 0 ? 1 : 0);
 
 module.exports = class Matrix {
-  constructor (events, register) {
-    this.events = events;
+  constructor (events. register) {
     this.register = register;
+    this.events = events;
 
     this.picture = [
       [0, 0, 0, 0, 0, 1, 1, 1],
