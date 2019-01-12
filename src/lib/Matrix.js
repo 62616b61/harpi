@@ -53,7 +53,7 @@ class Matrix {
       clearInterval(this.interval);
       this.interval = setInterval(() => {
         this.picture.forEach((col, row) => {
-          this.register.send(this.toMatrixFormat(row, col));
+          this.register.send(toMatrixFormat(row, col));
         });
       }, 1);
     } else {
