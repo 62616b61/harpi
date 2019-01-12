@@ -28,6 +28,7 @@ function initRPiBoard(events) {
     register.reset();
 
     const matrix = new Matrix(events, register);
+    const tickerTape = new TickerTape(events);
   });
 }
 
