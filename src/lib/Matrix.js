@@ -13,10 +13,6 @@ const DEFAULT_PICTURE = [
 const invert = bits => bits.map(bit => bit === 0 ? 1 : 0);
 
 function toMatrixFormat (row, cols) {
-  if (cols.every(col => col === 0)) {
-    return [];
-  }
-
   const row_swap_rule = [9 , 14, 8 , 12, 1 , 7 , 2 , 5];
   const col_swap_rule = [13, 3 , 4 , 10, 6 , 11, 15, 16];
 
