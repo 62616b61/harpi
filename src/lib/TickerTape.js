@@ -1,13 +1,16 @@
-const { MATRIX_CHARS } = require('./chars');
-const { transformToArrayOfArrays, shift } = require('../utils/transform');
+const {
+  transformTextToArrayOfArrays,
+  shift,
+  cutToSquare,
+} = require('../utils/transform');
 
-const STEP_INTERVAL = 100;
+const STEP_INTERVAL = 80;
 
 class TickerTape {
   constructor(events) {
     this.events = events;
 
-    this.picture = transformToArrayOfArrays(MATRIX_CHARS['A']);
+    this.text = 'Hello World! ';
 
     this.subscribe();
     this.start();
@@ -27,6 +30,8 @@ class TickerTape {
   }
 
   start() {
+    this.picture = transformTextToArrayOfArrays(this.text);
+    
     clearInterval(this.interval);
     this.interval = setInterval(() => this.step(), STEP_INTERVAL);
   }
@@ -34,7 +39,7 @@ class TickerTape {
   step() {
     this.picture = shift(this.picture, 1);
 
-    this.events.emit('draw', this.picture)
+    this.events.emit('draw', cutToSquare(this.picture))
   }
 
   subscribe() {
