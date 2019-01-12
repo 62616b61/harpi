@@ -1,5 +1,3 @@
-const { MATRIX_CHARS } = require('./chars');
-
 const IS_ARM_ARCH = process.arch === 'arm';
 const DEFAULT_PICTURE = [
   [0, 0, 0, 0, 0, 1, 1, 1],
