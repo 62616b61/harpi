@@ -10,7 +10,7 @@ class TickerTape {
   constructor(events) {
     this.events = events;
 
-    this.text = 'Hello World! ';
+    this.text = 'hello world! ';
 
     this.subscribe();
     this.start();
