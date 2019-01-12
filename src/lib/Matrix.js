@@ -62,7 +62,6 @@ class Matrix {
     this.display();
   }
 
-
   subscribe () {
     this.events.on('draw', (picture) => this.setPicture(picture));
   }

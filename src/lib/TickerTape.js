@@ -4,7 +4,7 @@ const {
   cutToSquare,
 } = require('../utils/transform');
 
-const STEP_INTERVAL = 80;
+const STEP_INTERVAL = 100;
 
 class TickerTape {
   constructor(events) {
