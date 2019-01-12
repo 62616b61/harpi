@@ -1,5 +1,6 @@
 const Matrix = require('./Matrix');
 const Terminal = require('./Terminal');
+const TickerTape = require('./TickerTape');
 
 try {
   var Raspi = require('raspi-io');
@@ -33,6 +34,7 @@ function initRPiBoard(events) {
 function initTerminal(events) {
   const terminal = new Terminal();
   const matrix = new Matrix(events, terminal);
+  const tickerTape = new TickerTape(events);
 }
 
 module.exports = process.arch === 'arm' ? initRPiBoard : initTerminal;
