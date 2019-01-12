@@ -1,3 +1,5 @@
+const IS_ARM_ARCH = process.arch === 'arm';
+
 const invert = bits => bits.map(bit => bit === 0 ? 1 : 0);
 
 module.exports = class Matrix {
@@ -21,12 +23,16 @@ module.exports = class Matrix {
   }
 
   display () {
-    clearInterval(this.interval);
-    this.interval = setInterval(() => {
-      this.picture.forEach((col, row) => {
-        this.register.send(this.toMatrixFormat(row, col));
-      });
-    }, 1);
+    if (IS_ARM_ARCH) {
+      clearInterval(this.interval);
+      this.interval = setInterval(() => {
+        this.picture.forEach((col, row) => {
+          this.register.send(this.toMatrixFormat(row, col));
+        });
+      }, 1);
+    } else {
+      this.register.send(this.picture);
+    }
   }
 
   setPicture (picture) {

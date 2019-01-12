@@ -1,11 +1,10 @@
 const Matrix = require('./Matrix');
+const Terminal = require('./Terminal');
 
 try {
   var Raspi = require('raspi-io');
   var five = require('johnny-five');
-} catch (e) {
-  console.log('Wup')
-}
+} catch (e) {}
 
 function initRPiBoard(events) {
   const board = new five.Board({
@@ -15,6 +14,7 @@ function initRPiBoard(events) {
 
   board.on('ready', () => {
     console.log('Board is ready')
+
     const register = new five.ShiftRegister({
       isAnode: true,
       pins: {
@@ -30,9 +30,9 @@ function initRPiBoard(events) {
   });
 }
 
-function initEmulator() {
-  console.log('Emulator is ready')
-
+function initTerminal(events) {
+  const terminal = new Terminal();
+  const matrix = new Matrix(events, terminal);
 }
 
-module.exports = process.arch === 'arm' ? initRPiBoard : initEmulator;
+module.exports = process.arch === 'arm' ? initRPiBoard : initTerminal;
