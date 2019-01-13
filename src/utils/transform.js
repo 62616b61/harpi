@@ -22,7 +22,8 @@ function transformTextToArrayOfArrays(text) {
 }
 
 function transformArrayOfArraysToString(picture) {
-  return picture.flat().join('');
+  const flat = [].concat.apply([], picture);
+  return flat.join('');
 }
 
 function shift(picture, step) {
