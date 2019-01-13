@@ -21,6 +21,10 @@ function transformTextToArrayOfArrays(text) {
   }, null);
 }
 
+function transformArrayOfArraysToString(picture) {
+  return picture.flat().join('');
+}
+
 function shift(picture, step) {
   return picture.map(row => {
     const shifted = row.shift(step);
@@ -35,6 +39,7 @@ function cutToSquare(picture) {
 
 module.exports = {
   transformTextToArrayOfArrays,
+  transformArrayOfArraysToString,
   shift,
   cutToSquare,
 }

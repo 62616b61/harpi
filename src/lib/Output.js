@@ -46,7 +46,7 @@ class Output {
 
   send(picture) {
     if (IS_ARM_ARCH) {
-      this.register.send(picture);
+      picture.forEach(row => this.register.send(row));
     } else {
       for(const row of picture) {
         const formattedString = row
