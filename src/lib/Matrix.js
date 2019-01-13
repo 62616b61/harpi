@@ -41,7 +41,6 @@ class Matrix {
     this.register = register;
     this.events = events;
 
-
     this.subscribe();
     this.setPicture(DEFAULT_PICTURE);
   }

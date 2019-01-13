@@ -11,6 +11,8 @@ try {
 function initBoard(events) {
   let output;
 
+  const tickerTape = new TickerTape(events);
+
   if(IS_ARM_ARCH) {
     const board = new five.Board({
       repl: false,
@@ -30,13 +32,14 @@ function initBoard(events) {
         },
       });
       output.reset();
+      events.emit('ready');
     });
   } else {
     output = new Terminal();
+    events.emit('ready');
   }
 
   const matrix = new Matrix(events, output);
-  const tickerTape = new TickerTape(events);
 }
 
 module.exports = initBoard;

@@ -13,7 +13,6 @@ class TickerTape {
     this.text = 'hello world! ';
 
     this.subscribe();
-    this.start();
   }
 
   display() {
@@ -43,7 +42,7 @@ class TickerTape {
   }
 
   subscribe() {
-    //this.events.on('draw', (picture) => this.setPicture(picture));
+    this.events.on('ready', () => this.start());
   }
 }
 
