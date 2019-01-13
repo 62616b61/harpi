@@ -24,7 +24,7 @@ function createJwt() {
   // audience field should always be set to the GCP project id.
   const token = {
     iat: parseInt(Date.now() / 1000),
-    exp: parseInt(Date.now() / 1000) + 20 * 60, // 20 minutes
+    exp: parseInt(Date.now() / 1000) + 60 * 60 * 24,
     aud: PROJECT_ID,
   };
 
