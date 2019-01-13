@@ -1,4 +1,6 @@
-const IS_ARM_ARCH = process.arch === 'arm';
+const { transformArrayOfArraysToString } = require('../utils/transform');
+const { IS_ARM_ARCH } = require('../config/constants');
+
 const DEFAULT_PICTURE = [
   [0, 0, 0, 0, 0, 1, 1, 1],
   [0, 0, 0, 0, 0, 0, 0, 1],
