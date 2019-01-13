@@ -1,4 +1,3 @@
-const { transformArrayOfArraysToString } = require('../utils/transform');
 const { IS_ARM_ARCH } = require('../config/constants');
 
 const DEFAULT_PICTURE = [
