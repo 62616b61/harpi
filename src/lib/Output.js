@@ -34,7 +34,7 @@ class Output {
             reset: 'P1-7',
           },
         });
-        output.reset();
+        this.register.reset();
         this.events.emit('ready');
       });
     } else {
