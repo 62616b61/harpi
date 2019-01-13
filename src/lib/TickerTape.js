@@ -5,7 +5,7 @@ const {
 } = require('../utils/transform');
 
 const STEP_INTERVAL = 100;
-const DEFAULT_TEXT = ' hello world ';
+const DEFAULT_TEXT = ' ';
 
 class TickerTape {
   constructor(events) {
