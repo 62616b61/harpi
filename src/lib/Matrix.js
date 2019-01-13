@@ -37,8 +37,7 @@ function toMatrixFormat (row, cols) {
 }
 
 class Matrix {
-  constructor (events, register) {
-    this.register = register;
+  constructor (events) {
     this.events = events;
 
     this.subscribe();
@@ -50,11 +49,11 @@ class Matrix {
       clearInterval(this.interval);
       this.interval = setInterval(() => {
         this.picture.forEach((col, row) => {
-          this.register.send(toMatrixFormat(row, col));
+          this.events.emit('send', toMatrixFormat(row, col));
         });
       }, 1);
     } else {
-      this.register.send(this.picture);
+      this.events.emit('send', this.picture);
     }
   }
 

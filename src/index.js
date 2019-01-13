@@ -1,6 +1,10 @@
 const EventEmitter = require('events');
-const initBoard = require('./lib/Board');
+const Matrix = require('./lib/Matrix');
+const Output = require('./lib/Output');
+const TickerTape = require('./lib/TickerTape');
 
 const events = new EventEmitter();
 
-initBoard(events);
+const tickerTape = new TickerTape(events);
+const matrix = new Matrix(events);
+const output = new Output(events);

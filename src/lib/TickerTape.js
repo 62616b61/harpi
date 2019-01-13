@@ -29,6 +29,7 @@ class TickerTape {
   }
 
   start() {
+    console.log('Started Ticker Tape')
     this.picture = transformTextToArrayOfArrays(this.text);
     
     clearInterval(this.interval);
