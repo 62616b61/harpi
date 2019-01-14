@@ -1,0 +1,17 @@
+{
+  "name": "harpi-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "googleapis": "^36.0.0",
+    "serverless-google-cloudfunctions": "^2.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "whynotcrybot",
+  "license": "ISC"
+}

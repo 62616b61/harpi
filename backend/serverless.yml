@@ -1,0 +1,25 @@
+service: harpi-data-ingest
+
+provider:
+  name: google
+  runtime: nodejs8
+  project: rpi-ticker-tape
+  region: europe-west1
+  # TODO: remove credentials, deploy from CI
+  credentials: ~/Personal/harpi/backend/keyfile.json
+
+plugins:
+  - serverless-google-cloudfunctions
+
+package:
+  exclude:
+    - node_modules/**
+    - .gitignore
+    - .git/**
+    - keyfile.json
+
+functions:
+  handleMessage:
+    handler: handleMessage
+    events:
+      - http: path
