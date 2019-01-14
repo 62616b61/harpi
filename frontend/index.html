@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <title>Harpi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <style type="text/css">
+      body {
+        background-color: #282c34;
+      }
+      body > .grid {
+        height: 100%;
+      }
+      .image {
+        margin-top: -100px;
+      }
+      .column {
+        max-width: 450px;
+      }
+    </style>
+
+    <script>
+      const handleMessageUri = 'https://europe-west1-rpi-ticker-tape.cloudfunctions.net/handleMessage';
+
+      async function submitMessage(e) {
+        e.preventDefault();
+
+        const form = new FormData(document.querySelector('form'));
+        const message = form.get('message');
+
+        const result = await fetch(handleMessageUri, {
+          method: "POST",
+          mode: "cors",
+          body: message,
+        })
+
+        const response = await result.json()
+
+        if (response.success) {
+          alert('Message sent!')
+        else {
+          alert(response.error);
+        }
+        console.log('Response', response)
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="ui middle aligned center aligned grid">
+      <div class="column">
+        <h2 class="ui teal image header">
+          <div class="content">
+            Harpi - Ticker Tape
+          </div>
+        </h2>
+        <form class="ui large form" onsubmit="return submitMessage(event)">
+          <div class="ui stacked segment">
+            <p>Leave your message</p>
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="paper plane icon"></i>
+                <input type="text" name="message" placeholder="Leave your message">
+              </div>
+            </div>
+            <button type="submit" class="ui fluid large teal submit button">Submit</button>
+          </div>
+
+          <div class="ui error message"></div>
+
+        </form>
+
+        <div class="ui message" hidden>
+          Need help? <a href="#">Help</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
